@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Мой Сайт</title> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+  <!-- Интерактивный холст для неонового узора --> 
+  <canvas id="math-canvas"></canvas> 
+
+  <!-- Главный блок меню и логотипа слева --> 
+  <div class="container"> 
+    <div class="logo-wrapper"> 
+      <img src="logo.png" alt="Logo" class="logo-header"> 
+    </div> 
+    <div class="menu"> 
+      <button class="btn" id="art-trigger">МОИ АРТЫ</button> 
+      <button class="btn" id="info-trigger">ИНФО ОБО МНЕ</button> 
+      <button class="btn" id="links-trigger">ССЫЛКА</button> 
+    </div> 
+  </div> 
+
+  <!-- ВСПЛЫВАЮЩЕЕ ОКОШКО "ИНФО ОБО МНЕ" --> 
+  <div class="info-window-box" id="info-modal"> 
+    <button class="info-close" id="close-info">✖</button> 
+    <h2 class="info-title">Обо мне</h2> 
+    <div class="info-content"> 
+      <!-- Визитка --> 
+      <div class="info-section"> 
+        <p class="info-nickname">✨ Андрюшка \ FFfores</p> 
+        <p class="info-text">Немножко рисую и просто занимаюсь чем захочу!</p> 
+      </div> 
+      <!-- Творчество --> 
+      <div class="info-section"> 
+        <h3>🎨 Творчество</h3> 
+        <p class="info-text">Рисую на компике мышкой или ручками на бумаге. Очень нравятся пиксель-арты!</p> 
+        <ul class="info-list"> 
+          <li><strong>Программы:</strong> Krita, Aseprite</li> 
+        </ul> 
+      </div> 
+      <!-- Интересы --> 
+      <div class="info-section"> 
+        <h3>🎮 Интересы</h3> 
+        <p class="info-text">Очень долгую часть времени играл в Майнкрафтик, сейчас же очень люблю хардкорные игры.</p> 
+        <p class="info-text">Посещал разные занятия, умею играть в шахматы (прекольна :Р). Также нравятся настолки, в особенности карточные игры, особенно покер :}</p> 
+      </div> 
+      <!-- Музыкальный плеер --> 
+      <div class="info-section"> 
+        <h3>🎵 Мой Плейлист</h3> 
+        <div class="music-player-box"> 
+          <p class="player-status" id="track-name">🎧 Нажми Play, чтобы включить</p> 
+          <audio id="audio-element" src=""></audio> 
+          <div class="player-placeholder"> 
+            <span class="player-btn-nav" id="prev-btn">◀◀</span> 
+            <span class="player-btn-play" id="play-btn">▶</span> 
+            <span class="player-btn-nav" id="next-btn">▶▶</span> 
+            <span class="player-btn-extra" id="loop-btn" title="Режим повтора">🔁 <small id="loop-mode-text" style="font-size:9px; display:block; text-align:center; color:#ffffff;">ВЫКЛ</small></span> 
+            <div class="volume-container"> 
+              <span id="volume-icon">🔊</span> 
+              <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.7"> 
+            </div> 
+            <div class="player-timeline" id="timeline"> 
+              <div class="player-progress" id="progress"></div> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+
+  <!-- ВСПЛЫВАЮЩЕЕ ОКОШКО С СОЦСЕТЯМИ -->
+  <div class="info-window-box" id="links-modal">
+    <button class="info-close" id="close-links">✖</button>
+    <h2 class="info-title">Мои ссылки</h2>
+    <div class="info-content">
+      <div class="info-section">
+        <p class="info-text">Ты можешь найти меня на этих площадках! Буду рад пообщаться :Р</p>
+        <div class="social-links-grid">
+          <button class="social-btn tg" id="copy-tg" data-username="@твой_юзернейм_тг">✈ Telegram (Копировать @...)</button>
+          <button class="social-btn dc" id="copy-dc" data-username="твой_дискорд_ник">👾 Discord (Копировать ник)</button>
+          <a href="ССЫЛКА_НА_ДС_СЕРВЕР" target="_blank" class="social-btn dc-server">🌐 Discord Сервер</a>
+          <button class="social-btn st" id="copy-st" data-username="ТВОЙ_КОД_СТИМА">🎮 Steam (Копировать код)</button>
+          <a href="ССЫЛКА_НА_ТИКТОК" target="_blank" class="social-btn tt">🎵 TikTok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Контейнер чибиков --> 
+  <div class="chibi-container" id="chibi-zone"> 
+    <div class="chibi-wrapper" id="wrapper1"> 
+      <img src="spring.png" alt="Пружина" class="custom-spring" id="spring1"> 
+      <img src="chibi_hero1.png" alt="Мой Чибик 1" class="chibi" id="chibi1"> 
+    </div> 
+    <div class="chibi-wrapper" id="wrapper2"> 
+      <img src="spring.png" alt="Пружина" class="custom-spring" id="spring2"> 
+      <img src="chibi_hero2.png" alt="Мой Чибик 2" class="chibi" id="chibi2"> 
+    </div> 
+  </div> 
+
+  <!-- ВСПЛЫВАЮЩЕЕ ОКНО ГАЛЕРЕИ --> 
+  <div class="modal-overlay" id="gallery-modal"> 
+    <div class="modal-window"> 
+      <button class="modal-close" id="close-gallery">✖</button> 
+      <h2 class="modal-title">Мои картинко</h2> 
+      <div class="art-grid" id="art-grid-container"></div> 
+    </div> 
+  </div> 
+
+  <!-- Полноэкранный просмотр артов --> 
+  <div class="full-art-overlay" id="full-art-viewer"> 
+    <img src="" alt="Большой просмотр" class="full-art-image" id="full-image-target"> 
+  </div> 
+
+  <script src="script.js"></script>
+</body>
+</html>
