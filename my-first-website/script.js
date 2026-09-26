@@ -263,7 +263,7 @@ if (canvas) {
 // 4. ГАЛЕРЕЯ АРТОВ С НАКЛОНОМ
 // ==========================================
 const myArtFiles = [
- { src: 'arts/art1.png', title: ':О' }, { src: 'arts/art2.png', title: 'Хер' }, { src: 'arts/art3.png', title: ':)?' },
+ { src: 'arts/art1.png', title: ':О' }, { src: 'arts/art2.png', title: 'Хер' }, { src: 'arts/art3.png', title: ':)?' }, { src: 'arts/art10.png', title: ':()' }, 
  { src: 'arts/art4.png', title: ':П' }, { src: 'arts/art5.png', title: ':)' }, { src: 'arts/art6.png', title: ';П' },
  { src: 'arts/art7.png', title: ':р' }, { src: 'arts/art8.png', title: 'FUCK OFF' }, { src: 'arts/art9.png', title: '<3' },
 ];
